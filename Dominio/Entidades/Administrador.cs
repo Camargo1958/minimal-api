@@ -6,7 +6,7 @@ namespace MinimalApi.Dominio.Entidades;
 public class Administrador
 {
     [Key]
-    [DatabaseGenerated( DatabaseGeneratedOption.Identity)]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; } = default!;
 
     [Required]

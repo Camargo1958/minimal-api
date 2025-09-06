@@ -36,7 +36,7 @@
  - Recuperar a string de conexão no Program.cs
  - Refeletir a modificação de optionsBuilder em DbContexto.cs
  - Gerar migrate:
-   - >dotnet ef --
+   - >dotnet ef --version
    - Instalar Entity Framework:
      - >dotnet tool install --global dotnet-ef --version 7.0.20
    - >dotnet ef migrations add AdministradorMigration
@@ -64,4 +64,7 @@
     +--------+--------------+------+-----+---------+----------------+
     4 rows in set (0.01 sec) 
 
-    
+- Validar usuário no BD
+  - Seed em DbContexto.cs:
+    - >dotnet ef migrations SeedAdministrador
+    - >dotnet ef database update
