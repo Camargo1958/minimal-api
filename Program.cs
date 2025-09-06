@@ -1,4 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using MinimalAPI.Infraestrutura.Db;
+using MinimalAPI.DTOs;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<DbContexto>(options =>
+{
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("mysql"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("mysql"))
+    );
+});
+
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
@@ -12,9 +25,3 @@ app.MapPost("/login", (LoginDTO loginDTO) =>
 });
 
 app.Run();
-
-public class LoginDTO
-{
-    public string Email { get; set; } = default!;
-    public string Senha { get; set; } = default!;
-}
