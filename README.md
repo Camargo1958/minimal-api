@@ -68,3 +68,6 @@
   - Seed em DbContexto.cs:
     - >dotnet ef migrations SeedAdministrador
     - >dotnet ef database update
+- Incluir novo contexto de Login com BD em Program.cs
+  - Criar serviço AdministradorServico.cs
+  - Criar interface IAdministradorServico (iAdministradorServico.cs)
