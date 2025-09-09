@@ -71,3 +71,10 @@
 - Incluir novo contexto de Login com BD em Program.cs
   - Criar serviço AdministradorServico.cs
   - Criar interface IAdministradorServico (iAdministradorServico.cs)
+- Criar entidade Veiculo:
+  - Atualizar DbContexto
+  - Gerar migration
+  - >dotnet ef migrations add VeiculosMigration
+  - >dotnet ef database update
+- Criar interface IVeiculoServico
+- Criar servico VeiculoServico
