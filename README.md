@@ -78,3 +78,8 @@
   - >dotnet ef database update
 - Criar interface IVeiculoServico
 - Criar servico VeiculoServico
+- Configurar swagger na aplicação
+  - nuget.org -> Swashbuckle.AspNetCore
+  - >dotnet add package Swashbuckle.AspNetCore --version 7.0.0
+  - >dotnet build
+  - Alterar Program.cs para incluir swagger
