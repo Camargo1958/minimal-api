@@ -83,3 +83,7 @@
   - >dotnet add package Swashbuckle.AspNetCore --version 7.0.0
   - >dotnet build
   - Alterar Program.cs para incluir swagger
+- Configurar a nova Home
+  - Criar past Dominio/ModelViews
+  - Criar ModelViews/Home.cs
+  - 
