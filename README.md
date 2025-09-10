@@ -86,4 +86,6 @@
 - Configurar a nova Home
   - Criar past Dominio/ModelViews
   - Criar ModelViews/Home.cs
-  - 
+- Configurar POST para criar veículo:
+  - Criar #region/#endregion em Program.cs
+  - Criar DTOs/VeiculoDTO.cs
