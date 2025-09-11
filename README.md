@@ -91,3 +91,4 @@
   - Criar DTOs/VeiculoDTO.cs
 - Configurar GET para listar todos os veículos
 - Organizar rotas por contexto no swagger
+- Configurar GET para obter veículo
