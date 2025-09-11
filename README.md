@@ -90,4 +90,4 @@
   - Criar #region/#endregion em Program.cs
   - Criar DTOs/VeiculoDTO.cs
 - Configurar GET para listar todos os veículos
-- 
+- Organizar rotas por contexto no swagger
