@@ -93,3 +93,4 @@
 - Organizar rotas por contexto no swagger
 - Configurar GET para obter veículo
 - Configurar PUT para alterar veículo
+- Configurar DELETE para apagar veículo
