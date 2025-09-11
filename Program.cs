@@ -6,6 +6,7 @@ using MinimalApi.Dominio.Servicos;
 using Microsoft.AspNetCore.Mvc;
 using MinimalApi.Dominio.ModelViews;
 using MinimalApi.Dominio.Entidades;
+using minimal_api.Migrations;
 
 #region Builder
 var builder = WebApplication.CreateBuilder(args);
@@ -44,7 +45,8 @@ app.MapPost("/administradores/login", ([FromBody] LoginDTO loginDTO, IAdministra
 #region Veiculos
 app.MapPost("/veiculos", ([FromBody] VeiculoDTO veiculoDTO, IVeiculoServico veiculoServico) =>
 {
-    var veiculo = new Veiculo{
+    var veiculo = new Veiculo
+    {
         Nome = veiculoDTO.Nome,
         Marca = veiculoDTO.Marca,
         Ano = veiculoDTO.Ano
@@ -52,6 +54,13 @@ app.MapPost("/veiculos", ([FromBody] VeiculoDTO veiculoDTO, IVeiculoServico veic
     veiculoServico.Incluir(veiculo);
 
     return Results.Created($"/veiculo/{veiculo.Id}", veiculo);
+});
+
+app.MapGet("/veiculos", ([FromQuery] int? pagina, IVeiculoServico veiculoServico) =>
+{
+    var veiculos = veiculoServico.Todos(pagina ?? 1);
+
+    return Results.Ok(veiculos);
 });
 #endregion
 

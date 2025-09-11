@@ -89,3 +89,5 @@
 - Configurar POST para criar veículo:
   - Criar #region/#endregion em Program.cs
   - Criar DTOs/VeiculoDTO.cs
+- Configurar GET para listar todos os veículos
+- 
