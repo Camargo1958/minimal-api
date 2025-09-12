@@ -94,3 +94,5 @@
 - Configurar GET para obter veículo
 - Configurar PUT para alterar veículo
 - Configurar DELETE para apagar veículo
+- Criar vaidação ao cadastrar e atualizar veículo
+  - Criar ModelViews/ErrosDeValidacao.cs

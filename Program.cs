@@ -43,8 +43,30 @@ app.MapPost("/administradores/login", ([FromBody] LoginDTO loginDTO, IAdministra
 #endregion
 
 #region Veiculos
+ErrosDeValidacao validaDTO(VeiculoDTO veiculoDTO) {
+    var validacoes = new ErrosDeValidacao
+    {
+        Mensagens = new List<string>()
+    };
+
+    if(string.IsNullOrEmpty(veiculoDTO.Nome) || veiculoDTO.Nome.Length < 3)
+        validacoes.Mensagens.Add("O nome do veículo deve conter ao menos 3 caracteres.");
+
+    if(string.IsNullOrEmpty(veiculoDTO.Marca) || veiculoDTO.Marca.Length < 3)
+        validacoes.Mensagens.Add("A marca do veículo deve conter ao menos 3 caracteres.");
+
+    if(veiculoDTO.Ano < 1950 || veiculoDTO.Ano > DateTime.Now.Year)
+        validacoes.Mensagens.Add($"O ano do veículo deve estar entre 1950 e {DateTime.Now.Year}.");
+
+    return validacoes;
+}
+
 app.MapPost("/veiculos", ([FromBody] VeiculoDTO veiculoDTO, IVeiculoServico veiculoServico) =>
 {
+    var validacoes = validaDTO(veiculoDTO);
+    if(validacoes.Mensagens.Count > 0)
+        return Results.BadRequest(validacoes);
+
     var veiculo = new Veiculo
     {
         Nome = veiculoDTO.Nome,
@@ -74,6 +96,11 @@ app.MapPut("/veiculos/{id}", ([FromRoute] int id, VeiculoDTO veiculoDTO, IVeicul
 {
     var veiculo = veiculoServico.BuscaPorId(id);
     if (veiculo == null) return Results.NotFound();
+
+    var validacoes = validaDTO(veiculoDTO);
+    if(validacoes.Mensagens.Count > 0)
+        return Results.BadRequest(validacoes);
+
     veiculo.Nome = veiculoDTO.Nome;
     veiculo.Marca = veiculoDTO.Marca;
     veiculo.Ano = veiculoDTO.Ano;
