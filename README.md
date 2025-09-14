@@ -96,3 +96,9 @@
 - Configurar DELETE para apagar veículo
 - Criar vaidação ao cadastrar e atualizar veículo
   - Criar ModelViews/ErrosDeValidacao.cs
+- Criar endpoints para administrador:
+  - Criar DTOs/AdministradorDTO.cs
+  - Criar enumerable dominio/Enums/Perfil.cs
+  - Criar validações
+  - Incluir métodos Incluir, Todos e BuscaPorId em IAdministradorServico.cs e AdministradorServico.cs
+  - Criar ModelViews/AdministradorModelView.cs
